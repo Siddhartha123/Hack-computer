@@ -1,6 +1,8 @@
 `timescale 1ns / 1ps
+
+// This is the structural style implementation of RAM16K which requires large memory for synthesis.
+// Use the 2-D matrix memory implementation instead
 /*
-This is the structural style implementation of RAM16K which requires high computing power for synthesis.
 module RAM16K(input [15:0] in,
     input [13:0] address,
     input load,clk,
@@ -15,12 +17,17 @@ module RAM16K(input [15:0] in,
     Mux4Way16 M1(out0,out1,out2,out3,address[13:12],out);
 endmodule
 */
+
 module RAM16K(input [15:0] in,
     input [13:0] address,
     input load,clk,
     output reg [15:0] out);
     reg [15:0] mem [16383:0];
     
+	 initial begin
+		$readmemh("read.txt",mem);
+	 end
+	 
     always @(posedge clk) begin
         if(load) mem[address]=in;
         else out = mem[address];
