@@ -21,16 +21,15 @@ endmodule
 module RAM16K(input [15:0] in,
     input [13:0] address,
     input load,clk,
-    output reg [15:0] out);
+    output [15:0] out);
     reg [15:0] mem [16383:0];
     
 	 initial begin
 		$readmemh("read.txt",mem);
 	 end
-	 
+	 assign out = mem[address];
     always @(posedge clk) begin
         if(load) mem[address]=in;
-        else out = mem[address];
     end
 	 
 endmodule
