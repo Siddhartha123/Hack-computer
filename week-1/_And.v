@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module And(input a,b, 
+module _And(input a,b, 
     output c);
     wire _c;
     nand X1(_c,a,b);
