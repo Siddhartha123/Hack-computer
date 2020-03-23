@@ -22,8 +22,8 @@ module CPU(input clk, reset,
     .ins(instruction),
     .reset(reset),
     .clk(clk),
-    .ALU_zr(ALU_zr),
-    .ALU_ng(ALU_ng),
+    .ALU_zr(zr),
+    .ALU_ng(ng),
     .ctrlWord(ctrlWord),
     .writeM(writeM)
     );

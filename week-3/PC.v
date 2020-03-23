@@ -4,11 +4,12 @@ module PC(input [14:0] in,
     output [14:0] out);
     wire t1,_rst,_load,ctrl,loadReg;
     wire [15:0] incR,in1;
-    wire [14:0] inReg;
+    wire [15:0] inReg;
     _Not N1(reset,_rst);
 
     assign in1[15]=1'b0;
     assign incR[15]=1'b0;
+    assign inReg[15]=1'b0;
 
     AndBit16 A1(in,_rst,in1);
     _Or O1(load,reset,t1);
