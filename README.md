@@ -38,3 +38,15 @@ The following sequential logic blocks are designed using the blocks designed in 
 4. N-register memory (N is 8,64,512,4K,16K)
 5. Program Counter 
 
+## Week 5
+In this week the actual CPU takes shape. I went for a separate controller and datapath approach. Here are the components
+1. CPU_Datapath
+2. CPU_FSM
+3. CPU 
+
+Apart from the above modules, I implemented a ROM (as instruction memory) and RAM (as data memory) all of which are instantiated inside the top level entity called `hack_computer`
+
+## Testing
+All the associated test modules are inside the folder ```testbenches```
+
+NOTE: As the memory modules are large, I am unable to synthesize them on the development platform that I am using. Hence I made another testbench (```testbenches/CPU_test.v```) that implements a smaller memory enough to run small programs.
